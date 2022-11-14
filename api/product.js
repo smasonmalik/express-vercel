@@ -6,7 +6,9 @@ const router = express.Router();
  *
  * @return product list | empty.
  */
-router.get("/", async (req, res) => {
+router.get("/", tryMe);
+
+const tryMe = async (req, res, next) => {
   try {
     res.json({
       status: 200,
@@ -16,6 +18,6 @@ router.get("/", async (req, res) => {
     console.error(error);
     return res.status(500).send("Server error");
   }
-});
+};
 
 module.exports = router;

@@ -6,7 +6,7 @@
 // const PORT = process.env.PORT || 8080;
 // app.listen(PORT, () => console.log(`Server is running in port ${PORT}`));
 
-// require("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
