@@ -14,7 +14,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const product = require("./api/product");
 const jwtSecret = process.env.JWT_SECRET;
-const router = require("./src/routes/router");
+// const router = require("./src/routes/router");
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.use(cors(CorsOptions));
 app.use(morgan("tiny"));
 
 //serve static files from react app
-app.use(express.static(path.join(__dirname, "react/build")));
+// app.use(express.static(path.join(__dirname, "react/build")));
 app.use(express.json());
 
 app.use(
@@ -36,15 +36,15 @@ app.use(
 );
 app.use(cookieParser(jwtSecret));
 
-app.get("/", (req, res) => {
-  res.json({ message: "ok" });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "ok" });
+// });
 // app.use("/api", router);
 app.use("/api/product", product);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/react/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/react/build/index.html"));
+// });
 
 /* Error handler middleware */
 // app.use((err, req, res, next) => {
